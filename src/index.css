@@ -1,0 +1,208 @@
+:root {
+  --gray-50: #F9FAFB;
+  --gray-200: #D2D5DA;
+  --gray-400: #4D5562;
+  --gray-600: #394150;
+  --primary: #263FA9;
+  --primary-soft: #7CA9F3;
+  --bg: #040711;
+  --panel-1: #121826CC;
+  --panel-2: #212936CC;
+  --radius: 32px;
+  --font: "DM Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--gray-50);
+}
+
+/* -------------------- HERO AREA -------------------- */
+.app {
+  min-height: 100vh;
+  padding: 40px 0 0;
+  background:
+    linear-gradient(to bottom, rgba(4, 7, 17, 0) 0%, rgba(4, 7, 17, 0.6) 60%, rgba(4, 7, 17, 1) 100%),
+    url("./assets/hero_img.jpg") top center/cover no-repeat;
+}
+
+@media(max-width:768px) {
+  .app {
+    background:
+      linear-gradient(to bottom, rgba(4, 7, 17, 0) 0%, rgba(4, 7, 17, 0.7) 70%, rgba(4, 7, 17, 1) 100%),
+      url("./assets/hero_img-sm.jpg") top center/cover no-repeat;
+  }
+}
+
+/* -------------------- LOGO -------------------- */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 42px;
+}
+
+
+
+/* -------------------- PANELS ROW -------------------- */
+.cards-row {
+  width: 95%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+@media(max-width:1024px) {
+  .cards-row {
+    flex-direction: column;
+    width: 92%;
+  }
+}
+
+/* -------------------- PANEL -------------------- */
+.card {
+  flex: 1;
+  padding: 26px 30px 26px;
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--panel-1), var(--panel-2));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(28px);
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-tabs {
+  background: rgba(0, 0, 0, 0.42);
+  padding: 4px;
+  border-radius: 999px;
+  display: flex;
+  gap: 8px;
+}
+
+.tab-pill {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-200);
+}
+
+.tab-pill--active {
+  background: var(--gray-50);
+  color: var(--bg);
+}
+
+.swap-icon-button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--gray-200);
+  cursor: pointer;
+}
+
+/* -------------------- DIVIDER -------------------- */
+.card-divider {
+  margin: 20px 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------- TEXTAREA -------------------- */
+.card-textarea {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  resize: none;
+  border-radius: 20px;
+  padding: 18px 22px;
+  color: var(--gray-50);
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+
+/* -------------------- FOOTER -------------------- */
+.card-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  gap: 12px;
+}
+
+.circle-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+  color: var(--gray-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.char-counter {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* -------------------- TRANSLATE BUTTON -------------------- */
+.translate-main-button {
+  background: linear-gradient(135deg, #7CA9F3, #263FA9);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  color: var(--gray-50);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.translate-main-icon {
+  background: rgba(0, 0, 0, 0.8);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
