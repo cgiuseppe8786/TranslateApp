@@ -1,4 +1,3 @@
-// src/components/TranslatePanel.tsx
 import React from "react";
 import soundIcon from "../assets/sound_max_fill.svg";
 import copyIcon from "../assets/Copy.svg";
@@ -44,10 +43,14 @@ const TranslatePanel: React.FC<TranslatePanelProps> = ({
   return (
     <section className={`card card--${variant}`}>
       <div className="card-header">
-        <div className="header-tabs">
+        <div className="card-header-main">
+          {isSource && (
+            <span className="detected-label">Detected language</span>
+          )}
+
           <LanguageTabs
             fixed={[
-              { id: "auto", label: "Detect Language" },
+              // niente più "Detect Language" come valore di tab
               { id: "en", label: "English" },
               { id: "fr", label: "French" },
             ]}
