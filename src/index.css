@@ -39,34 +39,37 @@ body {
 /* ---------- HERO DESKTOP ---------- */
 
 .app {
-  min-height: 100vh;
-  padding: 8%;
-  background:
-    linear-gradient(
-      to bottom,
+  padding: 8% 0 40px;
+  background-color: var(--bg);
+
+  background-image:
+    linear-gradient(to bottom,
       rgba(4, 7, 17, 0) 0%,
-      rgba(4, 7, 17, 0.65) 62%,
-      var(--bg) 100%
-    ),
-    url("./assets/hero_img.jpg") top center / cover no-repeat;
+      rgba(4, 7, 17, 0.25) 50%,
+      #040711 90%),
+    url("./assets/hero_img.jpg");
+
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
 }
+
 
 
 /* ---------- HERO TABLET ---------- */
 
 @media (max-width: 1024px) {
   .app {
-    padding: 120px 0 32px;
-    background:
-      linear-gradient(
-        to bottom,
+    background-image:
+      linear-gradient(to bottom,
         rgba(4, 7, 17, 0) 0%,
-        rgba(4, 7, 17, 0.75) 68%,
-        var(--bg) 100%
-      ),
-      url("./assets/hero_img.jpg") top center / cover no-repeat;
+        rgba(4, 7, 17, 0.55) 38%,
+        #040711 55%),
+      url("./assets/hero_img.jpg");
+
+    background-position: top 0, center -30px;
   }
 }
+
 
 /* ---------- HERO MOBILE ---------- */
 
@@ -74,14 +77,14 @@ body {
 @media (max-width: 600px) {
 
   .app {
-      background:
-      linear-gradient(
-        to bottom,
+    background-image:
+      linear-gradient(to bottom,
         rgba(4, 7, 17, 0) 0%,
-        rgba(4, 7, 17, 0.75) 68%,
-        var(--bg) 100%
-      ),
-      url("./assets/hero_img-sm.jpg") top center / cover no-repeat;
+        rgba(4, 7, 17, 0.6) 33%,
+        #040711 52%),
+      url("./assets/hero_img-sm.jpg");
+
+    background-position: top 0, center -20px;
   }
 
   /* Il panel non deve far uscire nulla */
@@ -122,11 +125,11 @@ body {
 .app-header {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .logo-img {
-  height: 47px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -186,18 +189,14 @@ body {
   border-radius: var(--radius);
   padding: 22px 28px 26px;
   background:
-    radial-gradient(
-      circle at top left,
+    radial-gradient(circle at top left,
       rgba(124, 169, 243, 0.12) 0%,
       rgba(124, 169, 243, 0.06) 22%,
-      rgba(124, 169, 243, 0) 55%
-    ),
-    linear-gradient(
-      160deg,
+      rgba(124, 169, 243, 0) 55%),
+    linear-gradient(160deg,
       rgba(18, 24, 38, 0.92) 0%,
       rgba(21, 27, 41, 0.92) 45%,
-      rgba(14, 18, 27, 0.96) 100%
-    );
+      rgba(14, 18, 27, 0.96) 100%);
   border: 1px solid rgba(249, 250, 251, 0.06);
   backdrop-filter: blur(26px);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.88);
@@ -233,11 +232,12 @@ body {
   justify-content: space-between;
   gap: 16px;
 }
+
 .card-header-main {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  align-items: center; 
+  align-items: center;
 }
 
 .detected-label {
@@ -407,6 +407,7 @@ body {
   padding: 0;
 }
 
+
 /* mobile: font leggermente più piccolo */
 
 @media (max-width: 600px) {
@@ -419,6 +420,7 @@ body {
 /* ---------- FOOTER ---------- */
 
 .card-footer {
+
   margin-top: 32px;
   display: flex;
   align-items: center;
@@ -437,6 +439,7 @@ body {
 }
 
 .footer-left {
+  margin-top: auto;
   display: flex;
   gap: 12px;
 }

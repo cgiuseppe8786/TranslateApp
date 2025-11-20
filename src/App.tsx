@@ -1,5 +1,4 @@
-// src/App.tsx
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import TranslatePanel from "./components/TranslatePanel";
 import logo from "./assets/logo.svg";
 
@@ -46,40 +45,32 @@ const App: React.FC = () => {
         const effectiveFrom = from === "auto" ? "en" : from;
         const langpair = `${effectiveFrom}|${to}`;
 
-        const response = await fetch("https://api.mymemory.translated.net/get", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ q: text, langpair }),
+        const params = new URLSearchParams({
+          q: text,
+          langpair,
         });
+
+        const response = await fetch(
+          `https://api.mymemory.translated.net/get?${params.toString()}`
+        );
 
         if (!response.ok) {
           throw new Error("Network error");
         }
 
-        const data = (await response.json()) as MyMemoryResponse;
-        const translated = data.responseData?.translatedText ?? "";
+        const data = await response.json() as MyMemoryResponse;
+        const translated = data?.responseData?.translatedText ?? "";
         setTranslatedText(translated);
-      } catch {
-        setErrorMessage("");
+      } catch (err) {
+        console.error(err);
+        setErrorMessage("Something went wrong while translating.");
       } finally {
         setIsLoading(false);
       }
-    },
-    []
+    }, []
   );
 
-  useEffect(() => {
-    if (!sourceText.trim()) {
-      setTranslatedText("");
-      return;
-    }
 
-    const timeoutId = window.setTimeout(() => {
-      void translate(sourceText, sourceLang, targetLang);
-    }, 650);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [sourceText, sourceLang, targetLang, translate]);
 
   const handleTranslateClick = () => {
     void translate(sourceText, sourceLang, targetLang);
@@ -135,6 +126,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
+
       <header className="app-header">
         <img src={logo} alt="translated.io" className="logo-img" />
       </header>
