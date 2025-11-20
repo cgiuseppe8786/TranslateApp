@@ -60,7 +60,7 @@ const App: React.FC = () => {
         const translated = data.responseData?.translatedText ?? "";
         setTranslatedText(translated);
       } catch {
-        setErrorMessage("Something went wrong while translating.");
+        setErrorMessage("");
       } finally {
         setIsLoading(false);
       }
